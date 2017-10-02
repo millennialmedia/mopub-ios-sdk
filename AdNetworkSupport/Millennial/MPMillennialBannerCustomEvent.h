@@ -13,9 +13,10 @@
 #import <MMAdSDK/MMAdSDK.h>
 
 /*
- * Please reference the Supported Mediation Partner page at http://bit.ly/2mqsuFH for the
- * latest version and ad format certifications.
+ * For MMSDK version 6.4.0
  */
 @interface MPMillennialBannerCustomEvent : MPBannerCustomEvent <MMInlineDelegate>
+
+@property (nonatomic, readonly) MMCreativeInfo* creativeInfo;
 
 @end
