@@ -42,7 +42,7 @@ static NSString *const kMoPubMMAdapterDCN = @"dcn";
 }
 
 -(void)requestAdWithCustomEventInfo:(NSDictionary *)info {
-    __strong typeof(self.delegate) delegate = self.delegate;
+    __strong __typeof__(self.delegate) delegate = self.delegate;
     MMSDK *mmSDK = [MMSDK sharedInstance];
     
     if (![mmSDK isInitialized]) {

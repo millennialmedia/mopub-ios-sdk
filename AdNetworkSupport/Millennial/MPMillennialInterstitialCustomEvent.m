@@ -61,7 +61,7 @@ static NSString *const kMoPubMMAdapterDCN = @"dcn";
 - (void)requestInterstitialWithCustomEventInfo:(NSDictionary<NSString *, id> *)info {
     
     MMSDK *mmSDK = [MMSDK sharedInstance];
-    __strong typeof(self.delegate) delegate = self.delegate;
+    __strong __typeof__(self.delegate) delegate = self.delegate;
     
     if (![mmSDK isInitialized]) {
         NSError *error = [NSError errorWithDomain:MMSDKErrorDomain
@@ -125,7 +125,7 @@ static NSString *const kMoPubMMAdapterDCN = @"dcn";
 }
 
 - (void)interstitialAd:(MMInterstitialAd *)ad loadDidFailWithError:(NSError *)error {
-    __strong typeof(self.delegate) delegate = self.delegate;
+    __strong __typeof__(self.delegate) delegate = self.delegate;
     if (error.code == MMSDKErrorInterstitialAdAlreadyLoaded) {
         MPLogDebug(@"Millennial interstitial %@ already loaded, ignoring this request.", ad);
     } else {
@@ -140,7 +140,7 @@ static NSString *const kMoPubMMAdapterDCN = @"dcn";
 }
 
 - (void)interstitialAdDidDisplay:(MMInterstitialAd *)ad {
-    __strong typeof(self.delegate) delegate = self.delegate;
+    __strong __typeof__(self.delegate) delegate = self.delegate;
     MPLogDebug(@"Millennial interstitial %@ did appear.", ad);
     [delegate interstitialCustomEventDidAppear:self];
     [delegate trackImpression];
@@ -158,7 +158,7 @@ static NSString *const kMoPubMMAdapterDCN = @"dcn";
 
 
 - (void)interstitialAdTapped:(MMInterstitialAd *)ad {
-    __strong typeof(self.delegate) delegate = self.delegate;
+    __strong __typeof__(self.delegate) delegate = self.delegate;
     if (!self.didTrackClick) {
         MPLogDebug(@"Millennial interstitial %@ tracking click.", ad);
         [delegate trackClick];
@@ -175,7 +175,7 @@ static NSString *const kMoPubMMAdapterDCN = @"dcn";
 }
 
 - (void)interstitialAdDidDismiss:(MMInterstitialAd *)ad {
-    __strong typeof(self.delegate) delegate = self.delegate;
+    __strong __typeof__(self.delegate) delegate = self.delegate;
     MPLogDebug(@"Millennial interstitial %@ did dismiss.", ad);
     [delegate interstitialCustomEventDidDisappear:self];
     [self invalidate];

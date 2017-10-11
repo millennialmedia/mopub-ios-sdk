@@ -47,7 +47,7 @@ static NSString *const kMoPubMMAdapterDCN = @"dcn";
 }
 
 - (void)requestAdWithSize:(CGSize)size customEventInfo:(NSDictionary *)info {
-    __strong typeof(self.delegate) delegate = self.delegate;
+    __strong __typeof__(self.delegate) delegate = self.delegate;
     MMSDK *mmSDK = [MMSDK sharedInstance];
     
     if (![mmSDK isInitialized]) {
@@ -133,7 +133,7 @@ static NSString *const kMoPubMMAdapterDCN = @"dcn";
 }
 
 - (void)inlineAdRequestDidSucceed:(MMInlineAd *)ad {
-    __strong typeof(self.delegate) delegate = self.delegate;
+    __strong __typeof__(self.delegate) delegate = self.delegate;
     MPLogDebug(@"Millennial banner %@ did load, creative ID %@", ad, self.creativeInfo.creativeId);
     [delegate bannerCustomEvent:self didLoadAd:ad.view];
     [delegate trackImpression];
